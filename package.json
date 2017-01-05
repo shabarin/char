@@ -1,0 +1,21 @@
+{
+  "name": "char",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "static",
+    "test": "./node_modules/mocha/bin/mocha test/test.js",
+    "coverage": "istanbul cover _mocha -- -R spec",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "webpack": "^2.2.0-rc.3",
+    "xmldom": "^0.1.27"
+  }
+}

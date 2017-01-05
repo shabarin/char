@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Character generator</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">Character generator</a>
+	</div>
+
+<!-- /.navbar-collapse -->
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <form class="opml" action="">
+                <div class="form-group">
+                    <label for="opml">Содержимое OPML-файла </label>
+                    <textarea name="opml" id="opml" class="form-control" rows="10">
+&#x3C;?xml version=&#x22;1.0&#x22; encoding=&#x22;UTF-8&#x22;?&#x3E;
+&#x3C;opml version=&#x22;1.0&#x22;&#x3E;&#x3C;head&#x3E;&#x3C;title&#x3E;CREATE ARWORK&#x3C;/title&#x3E;&#x3C;/head&#x3E;&#x3C;body&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOICE SETTING&#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Stoneage&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Rome&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Modern&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Middle age&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Future&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Fantasy&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Present day&#x22; /&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOICE TIME&#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Day&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Morning&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Night&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Evening &#x22; /&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOICE SEASON&#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;SUMMER &#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;SPRING &#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;AUTUMN &#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;WINTER &#x22; /&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOICE VIEW&#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Top&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;First plan&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Section&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Front&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Panorama &#x22; /&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOICE LOCATION&#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;America&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Africa&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Brazil&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Russia&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Australia &#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Irland &#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Egypt&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Antarctica&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Oceania&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Europe&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;China&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Japan&#x22; /&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOISE PLACEMENT&#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;INDOOR&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Mech&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Box&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Workplace&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Home&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Cave&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;MACRO&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;OUTDOOR&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Earn&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Sea&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Sky&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Cosmos&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOISE CHARACTERS &#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;People&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;National&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Russia&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Oceania&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Maya&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Maori&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;USA&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Mexico &#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Brazil&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Africa&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;China&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Japan&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;England&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Italian&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Arab&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Egypt&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Slovac&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;France&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Pygmies&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Canada&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Gender&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Man&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Lesbian &#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Gay&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Woman&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Age&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Child&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Old&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Adult&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Undead&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Fantastic creatures&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Ufo&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Gnome&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Spirit&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Gods&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Werwolf &#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Elf&#x22; /&#x3E;
+&#x9;&#x9;&#x9;&#x3C;outline text=&#x22;Vampire &#x22; /&#x3E;
+&#x9;&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Animal&#x22; /&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x9;&#x3C;outline text=&#x22;CHOICE EVENT&#x22;&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Holyday &#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Sport&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Adventure&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;In Horror&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Everyday live&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;Work&#x22; /&#x3E;
+&#x9;&#x9;&#x3C;outline text=&#x22;War&#x22; /&#x3E;
+&#x9;&#x3C;/outline&#x3E;
+&#x3C;/body&#x3E;&#x3C;/opml&#x3E;
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <button class="act-parse btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Перечитать</button>
+                    <button class="act-clear btn btn-default pull-right"><span class="glyphicon glyphicon-trash"></span> Очистить</button>
+                </div>
+            </form>
+            <div class="well well-sm bg-info">
+                <span class="glyphicon glyphicon-info-sign"></span> Результат парсинга тут
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <button class="btn btn-primary btn-lg">Сгенерировать</button>
+            <div class="result">
+                <h2>Результат</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="styles.css"/>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="dist/bundle.js"></script>
+</body>
+</html>
