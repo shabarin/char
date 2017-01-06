@@ -34,9 +34,9 @@ module.exports = function (opmlString, DOMParser) {
             return tmp;
         }
 
-        var wholeResult = parseNode(node);
-
-        return wholeResult.children ? wholeResult.children : [];
+        //var wholeResult = parseNode(node);
+        //return wholeResult.children ? wholeResult.children : [];
+        return parseNode(node);
 
     } catch (e) {
         return [];

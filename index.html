@@ -152,14 +152,20 @@
                 </div>
             </form>
             <div class="well well-sm bg-info">
-                <span class="glyphicon glyphicon-info-sign"></span> Результат парсинга тут
+                <span class="glyphicon glyphicon-info-sign"></span> <span class="parse-result">Заполните содержимое файла и нажмите «Перечитать»</span>
             </div>
         </div>
 
-        <div class="col-lg-8">
-            <button class="btn btn-primary btn-lg">Сгенерировать</button>
+        <div class="col-lg-4 text-center">
+            <button class="act-generate btn btn-primary">Сгенерировать <span class="glyphicon glyphicon-chevron-right"></span> </button>
+            <br/>
+            <br/>
+            <a style="display: none" href="" class="act-google btn btn-default" target="_blank">Погуглить</a>
+        </div>
+
+        <div class="col-lg-4">
+            <h3>Результат</h3>
             <div class="result">
-                <h2>Результат</h2>
             </div>
         </div>
     </div>

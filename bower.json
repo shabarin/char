@@ -1,0 +1,21 @@
+{
+  "name": "char",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "shabarin <ivan@shabarin.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/shabarin/char",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  }
+}

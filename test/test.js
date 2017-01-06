@@ -15,7 +15,9 @@ describe('opml parser', function () {
             '<body>' +
             '</body>' +
             '</opml>';
-        var result = [];
+        var result = {
+            text: "",
+        };
 
         assert.deepEqual(opmlparser(opmlString, DOMParser), result);
     });
@@ -70,54 +72,57 @@ describe('opml parser', function () {
                 '</outline>' +
                 '</body>' +
             '</opml>';
-        var result = [
-            {
-                text: 'CHOICE SETTING',
-                children: [
-                    { text: 'Stoneage'},
-                    { text: 'Rome'},
-                    { text: 'Modern'},
-                    { text: 'Middle age'},
-                    { text: 'Future'},
-                    { text: 'Fantasy'},
-                    { text: 'Present day'},
-                ]
-            },
-            {
-                text: 'CHOICE TIME',
-                children: [
-                    { text: 'Day'},
-                    { text: 'Morning'},
-                    { text: 'Night'},
-                    { text: 'Evening'},
-                ]
-            },
-            {
-                text: 'CHOISE PLACEMENT',
-                children: [
-                    {
-                        text: 'INDOOR',
-                        children: [
-                            { text: 'Mech'},
-                            { text: 'Box'},
-                            { text: 'Workplace'},
-                            { text: 'Home'},
-                            { text: 'Cave'},
-                        ]
-                    },
-                    { text: 'MACRO'},
-                    {
-                        text: 'OUTDOOR',
-                        children: [
-                            { text: 'Earn'},
-                            { text: 'Sea'},
-                            { text: 'Sky'},
-                            { text: 'Cosmos'},
-                        ]
-                    }
-                ]
-            }
-        ];
+        var result = {
+            text: "",
+            children: [
+                {
+                    text: 'CHOICE SETTING',
+                    children: [
+                        { text: 'Stoneage'},
+                        { text: 'Rome'},
+                        { text: 'Modern'},
+                        { text: 'Middle age'},
+                        { text: 'Future'},
+                        { text: 'Fantasy'},
+                        { text: 'Present day'},
+                    ]
+                },
+                {
+                    text: 'CHOICE TIME',
+                    children: [
+                        { text: 'Day'},
+                        { text: 'Morning'},
+                        { text: 'Night'},
+                        { text: 'Evening'},
+                    ]
+                },
+                {
+                    text: 'CHOISE PLACEMENT',
+                    children: [
+                        {
+                            text: 'INDOOR',
+                            children: [
+                                { text: 'Mech'},
+                                { text: 'Box'},
+                                { text: 'Workplace'},
+                                { text: 'Home'},
+                                { text: 'Cave'},
+                            ]
+                        },
+                        { text: 'MACRO'},
+                        {
+                            text: 'OUTDOOR',
+                            children: [
+                                { text: 'Earn'},
+                                { text: 'Sea'},
+                                { text: 'Sky'},
+                                { text: 'Cosmos'},
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
 
         assert.deepEqual(opmlparser(opmlString, DOMParser), result);
     })
