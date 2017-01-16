@@ -2,12 +2,12 @@ div.result .first {
     width: 10em;
     overflow: hidden;
     white-space: nowrap;
-    float: left;
+    /*float: left;*/
     color: gray;
 }
 div.result .others {
     width: 100%;
-    text-align: right;
+    /*text-align: right;*/
     padding-left: 10em;
     margin-bottom: 10px;
     border-bottom: 1px dotted lightgray;

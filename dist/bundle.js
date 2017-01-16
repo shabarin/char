@@ -86,13 +86,37 @@ module.exports = function (opmlString, DOMParser) {
         // but instead returns an error document (see bug 45566):
         if (xml.getElementsByTagName('parsererror').length > 0) return [];
 
+        // сначала отдельно обрабатываем <title />
+        var titleNode = xml.getElementsByTagName('title')[0].childNodes[0];
+        var titleText = titleNode ? titleNode.nodeValue : "";
+
         var node = xml.getElementsByTagName('body')[0];
+        // подсовываем текст в тех <body>, чтобы добиться единообразия; это экспортный файл кривой
+        node.setAttribute('text', titleText);
 
         function parseNode(node) {
             if (node.nodeType !== 1) return null;
 
             var tmp = {};
-            tmp.text = node.getAttribute('text');
+            var rawText = node.getAttribute('text');
+
+            // разбиваем на хэштег (если есть) и остальной текст
+            var arr = /^#(\d*[!\?]?)\s*(.*)/.exec(rawText);
+            var hashStr = arr ? arr[1] : null;
+            var text = arr ? arr[2] : rawText;
+
+            // обрабатываем хэш
+            if (hashStr) {
+                var a = /(\d+)([!\?]?)/.exec(hashStr);
+                if (a && a[1]) tmp.sort = parseInt(a[1]);
+                if (a && a[2]) tmp.modifier = a[2];
+            }
+
+            tmp.text = text;
+
+            // примечание
+            var note = node.getAttribute('_note');
+            if (note) tmp.note = note;
 
             if (!node.childNodes || node.childNodes.length == 0) return tmp;
 
@@ -103,6 +127,9 @@ module.exports = function (opmlString, DOMParser) {
                     tmp.children.push(parsedChild);
                 }
             }
+            tmp.children.sort(function(a,b) {
+                return ('sort' in a ? a.sort : 0) - ('sort' in b ? b.sort : 0);
+            });
             return tmp;
         }
 
@@ -123,6 +150,8 @@ module.exports = function (opmlString, DOMParser) {
 var parseOpml = __webpack_require__(0);
 
 jQuery(document).ready(function ($) {
+
+    $('[data-toggle="tooltip"]').tooltip();
 
     $('button.act-parse').click(function () {
         $('span.parse-result').hide();
@@ -156,19 +185,17 @@ jQuery(document).ready(function ($) {
         var $result = $('.result');
         $result.html('');
 
-        for (var i = 0; i < window.opmlObj.children.length; i++) {
-            generateChar(window.opmlObj.children[i], $result, 1)
-        }
+        //for (var i = 0; i < window.opmlObj.children.length; i++) {
+        //    generateChar(window.opmlObj.children[i], $result, 1)
+        //}
 
+        generateChar(window.opmlObj, $result, 0);
+
+        // other stuff
         var searchStr = '';
         $('div.result .others').each(function(index) {
             searchStr += $(this).text() + ' ';
         });
-
-        //var key = "AIzaSyBMstrDVa-OiC_EZYoULXpFw78Dbdc3xhQ";
-        //$.get('https://www.google.nl/search?tbm=isch&q='+searchStr, function(resp) {
-        //    console.log(resp);
-        //});
 
         $('.act-google').attr({href: 'https://www.google.nl/search?tbm=isch&q='+searchStr});
         $('.act-google').fadeIn();
@@ -179,18 +206,73 @@ jQuery(document).ready(function ($) {
 
 function generateChar(opmlObj, $result, level) {
     var text = opmlObj.text;
-    var html = $('<div>' + text + '</div>');
-    //html.css({ paddingLeft: 20*(level-1) });
-    if (1 == level) {
-        html.addClass('first');
+    var html;
+    if (level == 0) {
+        html = $('<h3>' + text + '</h3>');
     } else {
-        html.addClass('others');
+        html = $('<div>' + text + '</div>');
+    }
+    html.css({ paddingLeft: 20*(level) });
+
+    // note
+    //if (opmlObj.note) $result.attr({
+    //    'data-toggle': "tooltip",
+    //    title: opmlObj.note
+    //});
+    if (opmlObj.note) {
+        var note = $('<a href="javascript:void(0)"><span class="glyphicon glyphicon-info-sign"></span></a>');
+        note.attr({
+            title: opmlObj.text,
+            'data-placement': 'left',
+            'data-content': opmlObj.note
+        });
+        note.css({paddingLeft: '5px'});
+        note.popover();
+        html.append(note);
+    }
+
+    switch (level) {
+        case 0:
+            break;
+        case 1:
+            html.addClass('first');
+            break;
+        default:
+            html.addClass('others');
+            break;
     }
     $result.append(html);
     if (!opmlObj.children) return;
 
-    var randomChild = Math.floor(Math.random() * opmlObj.children.length);
-    generateChar(opmlObj.children[randomChild], $result, level + 1);
+    switch (opmlObj.modifier) {
+        case '!':
+            // отрабатываем все подпараметры
+            $result.addClass('modifier-all');
+            for (var i=0; i<opmlObj.children.length; i++) {
+                generateChar(opmlObj.children[i], $result, level+1);
+            }
+            break;
+        case '?':
+            // отрабатываем случайное число подпараметров
+            var randoms = [];
+            var count = Math.floor(Math.random()*opmlObj.children.length);
+            while (randoms.length < count) {
+                var cur = Math.floor(Math.random()*opmlObj.children.length);
+                if (-1 == randoms.indexOf(cur)) randoms.push(cur);
+            }
+            for (var i=0; i<randoms.length; i++) {
+                generateChar(opmlObj.children[randoms[i]], $result, level+1);
+            }
+            $result.addClass('modifier-some-random');
+            break;
+        default:
+            // отрабатываем один случайный подпараметр
+            $result.addClass('modifier-one-random');
+            var randomChild = Math.floor(Math.random() * opmlObj.children.length);
+            generateChar(opmlObj.children[randomChild], $result, level + 1);
+            break;
+    }
+
 }
 
 /***/ }
