@@ -91,7 +91,7 @@ module.exports = function (opmlString, DOMParser) {
         var titleText = titleNode ? titleNode.nodeValue : "";
 
         var node = xml.getElementsByTagName('body')[0];
-        // подсовываем текст в тех <body>, чтобы добиться единообразия; это экспортный файл кривой
+        // подсовываем текст в тег <body>, чтобы добиться единообразия; это экспортный файл кривой
         node.setAttribute('text', titleText);
 
         function parseNode(node) {
@@ -133,8 +133,6 @@ module.exports = function (opmlString, DOMParser) {
             return tmp;
         }
 
-        //var wholeResult = parseNode(node);
-        //return wholeResult.children ? wholeResult.children : [];
         return parseNode(node);
 
     } catch (e) {
@@ -142,6 +140,7 @@ module.exports = function (opmlString, DOMParser) {
     }
 
 };
+
 
 /***/ },
 /* 1 */
