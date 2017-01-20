@@ -222,7 +222,7 @@ function generateChar(opmlObj, $result, level) {
         var note = $('<a href="javascript:void(0)"><span class="glyphicon glyphicon-info-sign"></span></a>');
         note.attr({
             title: opmlObj.text,
-            'data-placement': 'left',
+            //'data-placement': 'left',
             'data-content': opmlObj.note
         });
         note.css({paddingLeft: '5px'});
